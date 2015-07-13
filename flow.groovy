@@ -8,7 +8,7 @@ node {
 						repoUrl: "$GITLAB_DEFAULT_HTTP_URL" + '/' + "$PROJECT_NAME",
 						version: "6.9"],
 			doGenerateSubmoduleConfigurations: false,
-			extensions: [[$class: 'PerBuildTag']],
+//			extensions: [[$class: 'PerBuildTag']],
 			submoduleCfg: [],
 			userRemoteConfigs: [[url: "$GITLAB_DEFAULT_SSH_URL" + '/' + "$PROJECT_NAME"]]]
 
