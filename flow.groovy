@@ -5,21 +5,21 @@ node {
 			scm: [$class: 'GitSCM',
 			branches: [[name: "$GIT_BRANCH"]],
 			browser: [$class: 'GitLab',
-						repoUrl: "$GITLAB_DEFAULT_HTTP_URL" + '/' + "$PROJECT_NAME",
+						repoUrl: "${env.GITLAB_DEFAULT_HTTP_URL}" + '/' + "$PROJECT_NAME",
 						version: "6.9"],
 			doGenerateSubmoduleConfigurations: false,
 //			extensions: [[$class: 'PerBuildTag']],
 			submoduleCfg: [],
-			userRemoteConfigs: [[url: "$GITLAB_DEFAULT_SSH_URL" + '/' + "$PROJECT_NAME"]]]
+			userRemoteConfigs: [[url: "${env.GITLAB_DEFAULT_SSH_URL}" + '/' + "$PROJECT_NAME"]]]
 
 	echo('clonning jenkins-common repo')
-	git branch: "$JENKINS_COMMON_BRANCH",
+	git branch: "${env.JENKINS_COMMON_BRANCH}",
 		changelog: false,
 		poll: false,
-		url: "$GITLAB_DEFAULT_SSH_URL/$JENKINS_COMMON_REPO_NAME"
+		url: "${env.GITLAB_DEFAULT_SSH_URL}/${env.JENKINS_COMMON_REPO_NAME}"
 
 	echo('build via jenkins-common script')
-	sh "$WORKSPACE/$JENKINS_COMMON_REPO_NAME/scripts/build/get_and_run_cicd_build.sh"
+	sh "$WORKSPACE/${env.JENKINS_COMMON_REPO_NAME}/scripts/build/get_and_run_cicd_build.sh"
 
 	echo('pack artifacts')
 	archive '**/target/*.jar,**/target/*.tar.gz, down-stream-job.properties'
