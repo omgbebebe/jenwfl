@@ -7,7 +7,7 @@ node{
 
 	def globals = getProps('global')
 	def project = getProps(PROJECT_NAME)
-	def props = new Properties()
+	def props = new XProperties()
 	props.putAll(globals)
 	props.putAll(project)
 
@@ -41,7 +41,7 @@ def undeploy(){
 def getProps(project){
 	def str = readFile file: "${project}.properties", encoding : 'utf-8'
 	def sr = new StringReader(str)
-	def props = new Properties()
+	def props = new XProperties()
 	props.load(sr)
 	return props
 //	def foobar = props.getProperty('somepropname')
