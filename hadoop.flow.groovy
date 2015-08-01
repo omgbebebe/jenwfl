@@ -8,7 +8,7 @@ node{
 	def globals = getProps('global')
 	def project = getProps(PROJECT_NAME)
 
-	withEnv(p2s("globals)){
+	withEnv(p2s(globals)){
 		sh "env"
 	}
 	switch(ACTION){
