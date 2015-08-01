@@ -1,15 +1,20 @@
+stage 'Prepare'
+
+def globals = getProps('global')
+def project = getProps(PROJECT_NAME)
+def props = new Properties()
+
+props.putAll(globals)
+props.putAll(project)
+
+stage 'Build'
+
 node{
 	// Wipe out workspace
 	sh 'rm -rf ./*'
 
 	// FIXME: reclone flow repo to current workspace
-	git url: 'https://github.com/omgbebebe/jenwfl.git'
-
-	def globals = getProps('global')
-	def project = getProps(PROJECT_NAME)
-	def props = new Properties()
-	props.putAll(globals)
-	props.putAll(project)
+//	git url: 'https://github.com/omgbebebe/jenwfl.git'
 
 	withEnv(p2s(props)){
 		sh "env"
