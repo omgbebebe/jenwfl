@@ -2,8 +2,8 @@ node{
 	// Wipe out workspace
 	sh 'rm -rf ./*'
 
+	// FIXME: reclone flow repo to current workspace
 	git url: 'https://github.com/omgbebebe/jenwfl.git'
-	//archive '*.properties'
 
 	def globals = getProps('global')
 	def project = getProps(PROJECT_NAME)
