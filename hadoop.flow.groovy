@@ -46,6 +46,6 @@ def getProps(project){
 
 def p2s(p){
 	def l = []
-	for (k in es) { l << "${k}"}
+	for (k in p) { l << "${k}"}
 	return l
 }
