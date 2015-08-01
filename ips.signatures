@@ -1,0 +1,8 @@
+method groovy.lang.Closure call java.lang.Object
+method java.lang.Object toString
+method java.util.Map putAll java.util.Map
+method java.util.Properties load java.io.Reader
+new java.io.StringReader java.lang.String
+new java.util.Properties
+staticMethod java.util.UUID randomUUID
+staticMethod org.codehaus.groovy.runtime.DefaultGroovyMethods leftShift java.util.Collection java.lang.Object
