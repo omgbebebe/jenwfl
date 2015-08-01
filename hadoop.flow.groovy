@@ -7,7 +7,9 @@ node{
 
 	def globals = getProps('global')
 	def project = getProps(PROJECT_NAME)
-	def props = global.putAll(project)
+	def props = new Properties()
+	def props.putAll(globals)
+	def props.putAll(project)
 
 	withEnv(p2s(props)){
 		sh "env"
