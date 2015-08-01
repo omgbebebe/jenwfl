@@ -2,6 +2,9 @@ node{
 	// Wipe out workspace
 	sh 'rm -rf ./*'
 
+	git url: 'https://github.com/omgbebebe/jenwfl.git'
+	//archive '*.properties'
+
 	def globals = getProps('global')
 	def project = getProps(PROJECT_NAME)
 
