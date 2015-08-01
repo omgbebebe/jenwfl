@@ -8,10 +8,9 @@ node{
 	def globals = getProps('global')
 	def project = getProps(PROJECT_NAME)
 
-	withEnv(globals){
+	withEnv(p2s("globals)){
 		sh "env"
 	}
-
 	switch(ACTION){
 	case 'build':
 		break
@@ -45,3 +44,8 @@ def getProps(project){
 //	def foobar = props.getProperty('somepropname')
 }
 
+def p2s(p){
+	def l = []
+	for (k in es) { l << "${k}"}
+	return l
+}
