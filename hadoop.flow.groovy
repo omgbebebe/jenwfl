@@ -1,4 +1,7 @@
 node{
+	// Wipe out workspace
+	sh 'rm -rf ./*'
+
 	def globals = getProps('global')
 	def project = getProps(PROJECT_NAME)
 
